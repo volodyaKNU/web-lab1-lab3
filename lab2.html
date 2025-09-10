@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Лабораторна робота — Конференції</title>
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/styles1.css" />
+    <link rel="stylesheet" href="styles/styles2.css" />
+    <script defer src="scripts/script2.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <h1 class="title">Михайлюк Володимир Олександрович</h1>
+          <p class="subtitle">КН-32 · Варіант 10</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <nav class="navigation-container" aria-label="Навігація по лабораторних">
+        <a href="lab1.html">Лабораторна робота 1</a>
+        <a href="lab2.html" aria-current="page">Лабораторна робота 2</a>
+        <a href="lab3.html">Лабораторна робота 3</a>
+      </nav>
+      <section class="card">
+        <h2>Опис завдання лабораторної</h2>
+        <h3>Завдання 1</h3>
+        <p>
+          У формі є список жанрів та поля для введення назви книги та автора,
+          після натискання Enter при введені автора сформуйте списки книг по
+          кожному з жанрів.
+        </p>
+
+        <h3>Завдання 2</h3>
+        <p>
+          Дана таблиця, при натисканні на кнопку перетворити її у список списків
+          де головним списком будуть рядки, а вкладеним списком їх елементи.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Реалізація</h2>
+
+        <form id="bookForm">
+          <div class="section-header" style="gap: 8px">
+            <label>
+              Жанр
+              <select id="genreSelect" required></select>
+            </label>
+
+            <label>
+              Назва книги
+              <input
+                id="bookTitle"
+                type="text"
+                placeholder="Напр.: Колонія"
+                required
+              />
+            </label>
+
+            <label>
+              Автор
+              <input
+                id="bookAuthor"
+                type="text"
+                placeholder="Введіть автора і натисніть Enter"
+                required
+              />
+            </label>
+          </div>
+          <!-- не показуємо кнопку — додавання відбувається натисканням Enter у полі Автор -->
+        </form>
+
+        <div id="genreLists" class="output" aria-live="polite"></div>
+      </section>
+      <section class="card">
+        <h2>Завдання 10: Таблиця → список списків</h2>
+
+        <div class="section-header" style="gap: 8px">
+          <button id="convertTableBtn" class="btn">Перетворити таблицю</button>
+        </div>
+
+        <div class="table-wrap" style="overflow: auto">
+          <table id="dataTable">
+            <thead>
+              <tr>
+                <th>Назва</th>
+                <th>Автор</th>
+                <th>Жанр</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Колонія</td>
+                <td>Автор 1</td>
+                <td>Фантастика</td>
+              </tr>
+              <tr>
+                <td>Тінь вітру</td>
+                <td>К. Руїс Сафон</td>
+                <td>Роман</td>
+              </tr>
+              <tr>
+                <td>Нуль правил</td>
+                <td>Рід Хоффман</td>
+                <td>Бізнес</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="listOutput" class="output" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <small>© 2025. Лабораторна робота</small>
+      </div>
+    </footer>
+  </body>
+</html>

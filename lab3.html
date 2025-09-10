@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Лабораторна робота — Конференції</title>
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/styles1.css" />
+    <script defer src="scripts/script3.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <h1 class="title">Михайлюк Володимир Олександрович</h1>
+          <p class="subtitle">КН-32 · Варіант 10</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <nav class="navigation-container" aria-label="Навігація по лабораторних">
+        <a href="lab1.html">Лабораторна робота 1</a>
+        <a href="lab2.html">Лабораторна робота 2</a>
+        <a href="lab3.html" aria-current="page">Лабораторна робота 3</a>
+      </nav>
+      <section class="card">
+        <h2>Опис завдання лабораторної</h2>
+        <p>
+          Базовий клас: Телефон (поле: кількість функцій -k.) Метод: Вартість:
+          40ln (k) Нащадок: Мобільний (поле - модель) Зміни в нащадках:
+          Збільшити вартість в 3 рази.
+        </p>
+      </section>
+      <section class="card">
+        <div class="section-header">
+          <h2>Реалізація</h2>
+        </div>
+
+        <form id="phoneForm" class="output" onsubmit="return false;">
+          <div>
+            <label><strong>Тип пристрою:</strong></label>
+            <label style="margin-left: 10px">
+              <input type="radio" name="type" value="phone" /> Телефон
+            </label>
+            <label style="margin-left: 10px">
+              <input type="radio" name="type" value="mobile" checked />
+              Мобільний
+            </label>
+          </div>
+
+          <div>
+            <label for="k"><strong>Кількість функцій (k):</strong></label>
+            <input
+              id="k"
+              type="number"
+              min="1"
+              step="1"
+              value="10"
+              style="margin-left: 8px; width: 120px"
+            />
+          </div>
+
+          <div id="modelRow">
+            <label for="model"><strong>Модель:</strong></label>
+            <input
+              id="model"
+              type="text"
+              placeholder="Напр., Galaxy S24"
+              style="margin-left: 8px; max-width: 240px"
+            />
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap">
+            <button id="calcBtn" class="btn">Розрахувати</button>
+            <button id="addBtn" class="btn">Додати у список</button>
+            <button id="clearBtn" class="btn" type="button">
+              Очистити список
+            </button>
+          </div>
+        </form>
+
+        <div id="result" class="output" aria-live="polite"></div>
+
+        <div class="output">
+          <h3 style="margin: 0">Список пристроїв</h3>
+          <div id="listWrap" class="card" style="padding: 0">
+            <table
+              id="listTable"
+              style="width: 100%; border-collapse: collapse"
+            >
+              <thead>
+                <tr style="border-bottom: 1px solid var(--border)">
+                  <th style="text-align: left; padding: 10px">#</th>
+                  <th style="text-align: left; padding: 10px">Тип</th>
+                  <th style="text-align: left; padding: 10px">k</th>
+                  <th style="text-align: left; padding: 10px">Модель</th>
+                  <th style="text-align: left; padding: 10px">Вартість</th>
+                </tr>
+              </thead>
+              <tbody id="listBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <small>© 2025. Лабораторна робота</small>
+      </div>
+    </footer>
+  </body>
+</html>
