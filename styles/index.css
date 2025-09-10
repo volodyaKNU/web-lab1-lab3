@@ -1,0 +1,304 @@
+/* -------------------- БАЗА -------------------- */
+:root {
+  --bg: #f7f7f8;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --border: #e5e7eb;
+  --primary: #1a73e8;
+  --primary-contrast: #ffffff;
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1220;
+    --card: #0f172a;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --border: #1e293b;
+    --primary: #4f8df5;
+    --primary-contrast: #0b1220;
+    --shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.55;
+}
+
+/* -------------------- СІТКА/КОНТЕЙНЕР -------------------- */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* -------------------- ХЕДЕР -------------------- */
+.site-header {
+  background: linear-gradient(180deg, var(--card), rgba(0, 0, 0, 0));
+  border-bottom: 1px solid var(--border);
+}
+.site-header .brand .title {
+  margin: 0;
+}
+.subtitle {
+  margin: 6px 0 0 0;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* -------------------- КАРТКИ/СЕКЦІЇ -------------------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.navigation-container {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 16px 0 24px;
+  padding: 8px;
+}
+
+.navigation-container a {
+  display: inline-block;
+  text-decoration: none;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 600;
+  transition: transform 0.02s ease-in, box-shadow 0.2s, filter 0.2s,
+    background-color 0.2s, color 0.2s, border-color 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.navigation-container a:hover {
+  filter: brightness(1.02);
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+.navigation-container a:active {
+  transform: translateY(1px);
+}
+
+.navigation-container a:focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.35);
+}
+
+.navigation-container a[aria-current="page"],
+.navigation-container a.is-active {
+  background: var(--primary);
+  color: var(--primary-contrast);
+  border-color: transparent;
+  box-shadow: 0 3px 12px rgba(26, 115, 232, 0.25);
+  pointer-events: none;
+}
+
+@media (max-width: 420px) {
+  .navigation-container a {
+    padding: 8px 12px;
+    font-weight: 600;
+  }
+}
+
+.card form {
+  display: grid;
+  gap: 12px;
+}
+
+/* підпис поля */
+.card form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* базові поля */
+.card form input[type="text"],
+.card form input[type="search"],
+.card form input[type="email"],
+.card form input[type="number"],
+.card form input[type="url"],
+.card form input[type="password"],
+.card form select,
+.card form textarea {
+  appearance: none;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  min-width: 220px;
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) inset;
+}
+
+.card form textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.card form input::placeholder,
+.card form textarea::placeholder {
+  color: var(--muted);
+  opacity: 0.85;
+}
+
+/* ховер/фокус/disabled */
+.card form input:hover,
+.card form select:hover,
+.card form textarea:hover {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.card form input:focus-visible,
+.card form select:focus-visible,
+.card form textarea:focus-visible {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.25);
+}
+
+.card form input:disabled,
+.card form select:disabled,
+.card form textarea:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* допоміжні стани (за бажанням використовуй класи на інпуті) */
+:root {
+  --danger: #ef4444;
+  --success: #16a34a;
+}
+
+.card form .is-invalid {
+  border-color: var(--danger) !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25) !important;
+}
+
+.card form .is-valid {
+  border-color: var(--success) !important;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.22) !important;
+}
+
+.card form .hint {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* селект — компактніший вигляд на дуже вузьких екранах */
+@media (max-width: 480px) {
+  .card form input,
+  .card form select,
+  .card form textarea {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+/* -------------------- ЧЕКБОКСИ -------------------- */
+/* швидка стилізація системних чекбоксів */
+.card form input[type="checkbox"] {
+  accent-color: var(--primary); /* колір галочки */
+  width: 18px;
+  height: 18px;
+  transform: translateY(2px); /* трішки вирівнюємо по тексту */
+  cursor: pointer;
+}
+
+/* рядок із чекбоксом */
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* фокусний стан для чекбоксів */
+.card form input[type="checkbox"]:focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.35);
+  border-radius: 4px;
+}
+
+/* (опційно) кастомний «плаский» чекбокс — додавай клас .pretty-checkbox на input */
+.card form input.pretty-checkbox {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 6px;
+  display: inline-grid;
+  place-content: center;
+  width: 18px;
+  height: 18px;
+  box-shadow: none;
+  transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+
+.card form input.pretty-checkbox::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  transform: scale(0);
+  transition: transform 0.12s ease-in-out;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 10%, 80% 0, 43% 62%);
+  background: var(--primary-contrast);
+}
+
+.card form input.pretty-checkbox:checked {
+  background: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 2px 8px rgba(26, 115, 232, 0.25);
+}
+
+.card form input.pretty-checkbox:checked::after {
+  transform: scale(1);
+}
+
+.card form input.pretty-checkbox:hover {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.card form input.pretty-checkbox:focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.35);
+}

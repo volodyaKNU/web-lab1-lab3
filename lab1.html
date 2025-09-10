@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Лабораторна робота — Конференції</title>
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/styles1.css" />
+    <script defer src="scripts/script1.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <h1 class="title">Михайлюк Володимир Олександрович</h1>
+          <p class="subtitle">КН-32 · Варіант 10</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <nav class="navigation-container" aria-label="Навігація по лабораторних">
+        <a href="lab1.html" aria-current="page">Лабораторна робота 1</a>
+        <a href="lab2.html">Лабораторна робота 2</a>
+        <a href="lab3.html">Лабораторна робота 3</a>
+      </nav>
+      <section class="card">
+        <h2>Опис завдання лабораторної</h2>
+        <p>
+          Створити масиви значень: назва наукової конференції; перелік секцій;
+          університет-організатор конференції. Кожна конференція працює протягом
+          3-х днів, кожна секція працює протягом одного дня. Вивести інформацію:
+          скільки днів залишилось до кожної з них, яка(і) конференції
+          проводиться сьогодні, які секції кожної конференції проводяться
+          сьогодні, скільки днів залишилось до їх закінчення.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-header">
+          <h2>Реалізація</h2>
+          <button id="showInfoBtn" class="btn">Показати інформацію</button>
+        </div>
+
+        <div id="output" class="output" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <small>© 2025. Лабораторна робота</small>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+/* список списків з таблиці */
+.list-rows {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  gap: 10px;
+  margin: 12px 0 0;
+}
+
+.list-rows > li {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.list-cells {
+  list-style: disc;
+  margin: 0 0 0 20px; /* стандартний відступ для вкладених пунктів */
+  padding-left: 0;
+}
